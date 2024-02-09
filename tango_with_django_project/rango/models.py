@@ -1,5 +1,6 @@
 from django.db import models
 from django.template.defaultfilters import slugify
+from django.contrib.auth.models import User
 
 
 
@@ -41,5 +42,16 @@ class Page(models.Model):
 #             cleaned_data['url'] = url
             
 #         return cleaned_data
-            
+
+
+class UsersProfile(models.Model):
+    
+    user = models.OneToOneField(User, on_delete = models.CASCADE)
+    
+    website = models.URLField(blank = True)
+    
+    picture = models.ImageField(upload_to = 'profile_image', blank = True)
+    
+    def __str__(self):
+        return self.user.username
             
