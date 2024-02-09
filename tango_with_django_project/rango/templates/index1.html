@@ -26,6 +26,11 @@
             {% else %}
             <strong>There are no categories present.</strong>
             {% endif %}
+            <a href = "add_category/">Add a new Category</a><br/>
+            <a href = "<slug:category_name_slug>/add_page/">Add a new Page</a><br/>
+
+
+
         </div>
         <br/>
 
@@ -33,13 +38,14 @@
         <ul>
             {% for page in most_viewed_pages %}
             <li><a href="{{ page.url }}">{{ page.title }}</a></li>
+
             {% endfor %}
         </ul>
         
         
 
         <div>
-            <a href = "rango/about/">About</a> <br />
+            <a href = "{% url 'about' %}">About</a> <br />
              <img src = "{%static 'images/rango.jpg' %}" 
             alt = "Picture of Rango"> 
         </div>
